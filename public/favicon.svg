@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .bg { fill: #000000; }
+    .mark { fill: #ffffff; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 34px; letter-spacing: -1px; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #ffffff; }
+      .mark { fill: #000000; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="4" />
+  <text class="mark" x="32" y="44" text-anchor="middle">GM</text>
+</svg>

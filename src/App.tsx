@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Copy, Check, Download, FileCode, Mail, Phone, Github, Linkedin } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, Mail, Phone, Github, Linkedin } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -16,21 +16,11 @@ interface Idea {
 
 export default function App() {
   const [copiedType, setCopiedType] = useState<string | null>(null);
-  const [showExportModal, setShowExportModal] = useState<boolean>(false);
 
   const copyToClipboard = (text: string, type: string) => {
     navigator.clipboard.writeText(text);
     setCopiedType(type);
     setTimeout(() => setCopiedType(null), 2000);
-  };
-
-  const downloadStandaloneHtml = () => {
-    const link = document.createElement('a');
-    link.href = '/portfolio.html';
-    link.download = 'gabriel-mwendwa-portfolio.html';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   const projects: Project[] = [
@@ -116,43 +106,32 @@ export default function App() {
             Gabriel Mwendwa
           </a>
 
-          <div className="flex items-center gap-4 sm:gap-6 text-sm">
-            <nav className="flex items-center gap-4 sm:gap-6" aria-label="Page navigation">
-              <a
-                href="#what-i-do"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
-              >
-                What I do
-              </a>
-              <a
-                href="#about"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#projects"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
-              >
-                Projects
-              </a>
-              <a
-                href="#contact"
-                className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors font-medium"
-              >
-                Contact
-              </a>
-            </nav>
-
-            <button
-              onClick={() => setShowExportModal(true)}
-              title="Get single self-contained HTML file"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white border border-neutral-300 dark:border-neutral-700 px-2 py-1 cursor-pointer"
+          <nav className="flex items-center gap-4 sm:gap-6 text-sm" aria-label="Page navigation">
+            <a
+              href="#what-i-do"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
             >
-              <FileCode className="w-3.5 h-3.5" />
-              <span>HTML File</span>
-            </button>
-          </div>
+              What I do
+            </a>
+            <a
+              href="#about"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
+            >
+              About
+            </a>
+            <a
+              href="#projects"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white no-underline transition-colors font-medium"
+            >
+              Contact
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -440,64 +419,11 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-black dark:border-white py-8 mt-12">
-        <div className="max-w-2xl mx-auto px-5 sm:px-6 flex flex-col sm:flex-row items-baseline sm:items-center justify-between gap-4 text-xs text-neutral-600 dark:text-neutral-400">
+        <div className="max-w-2xl mx-auto px-5 sm:px-6 flex items-center justify-between gap-4 text-xs text-neutral-600 dark:text-neutral-400">
           <p>© {new Date().getFullYear()} Gabriel Mwendwa</p>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={downloadStandaloneHtml}
-              className="inline-flex items-center gap-1 hover:text-black dark:hover:text-white cursor-pointer underline underline-offset-2"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Download single-file HTML
-            </button>
-            <span>Nairobi, Kenya</span>
-          </div>
+          <span>Nairobi, Kenya</span>
         </div>
       </footer>
-
-      {/* Export / Standalone HTML Modal */}
-      {showExportModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-black border border-black dark:border-white p-6 max-w-lg w-full space-y-4">
-            <div className="flex items-center justify-between border-b border-black dark:border-white pb-3">
-              <h3 className="font-serif text-lg font-semibold text-black dark:text-white">
-                Standalone HTML File
-              </h3>
-              <button
-                onClick={() => setShowExportModal(false)}
-                className="text-sm font-mono hover:opacity-70 cursor-pointer"
-                aria-label="Close modal"
-              >
-                [✕]
-              </button>
-            </div>
-
-            <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
-              This is a 100% self-contained single HTML file with inline CSS and zero external JavaScript dependencies. You can host it immediately on Vercel, GitHub Pages, or attach it directly in an email to contacts.
-            </p>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              <button
-                onClick={downloadStandaloneHtml}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white dark:bg-white dark:text-black text-sm font-medium cursor-pointer hover:opacity-90"
-              >
-                <Download className="w-4 h-4" />
-                Download portfolio.html
-              </button>
-
-              <a
-                href="/portfolio.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 border border-black dark:border-white text-sm font-medium text-black dark:text-white cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-900 no-underline"
-              >
-                <ArrowUpRight className="w-4 h-4" />
-                Open Standalone File
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

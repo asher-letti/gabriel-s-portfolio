@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Mwendwa — Automation, Data &amp; AI, Software Builder</title>
+  <meta name="description" content="Personal portfolio of Gabriel Mwendwa. Automation workflows, data and AI, and web software. Co-founder of Samga Automations, based in Nairobi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --text-muted: #555555;
+      --rule: #000000;
+      --font-serif: "Fraunces", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --text: #ffffff;
+        --text-muted: #aaaaaa;
+        --rule: #ffffff;
+      }
+    }
+
+    html {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 3.25rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+      text-transform: none;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    p.lead {
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    .subtext {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Rules */
+    .rule {
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 0;
+      width: 100%;
+    }
+
+    /* Sections */
+    section {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    @media (min-width: 640px) {
+      section {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+    }
+
+    /* Links */
+    a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    /* Header Nav */
+    header {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero-location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    /* What I Do Grid */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .skill-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-tools {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Projects List */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .project-title a {
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-title a:hover {
+      border-bottom-width: 2px;
+    }
+
+    /* Honest status tags: clean typographic labels without pill boxes */
+    .status-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 0;
+    }
+
+    .ideas-block {
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .ideas-subheading {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .ideas-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .idea-item strong {
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    .contact-table tr {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-table td {
+      padding: 0.85rem 0;
+      font-size: 0.95rem;
+      vertical-align: top;
+    }
+
+    .contact-label {
+      width: 30%;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .contact-value {
+      width: 70%;
+    }
+
+    /* Footer */
+    footer {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation (Clean 3-zone Top Bar Contract) -->
+  <header>
+    <div class="container nav-row">
+      <a href="#hero" class="nav-brand">Gabriel Mwendwa</a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#what-i-do">What I do</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section id="hero">
+      <div class="container">
+        <p class="hero-location">Nairobi, Kenya</p>
+        <h1>Gabriel Mwendwa</h1>
+        <p class="lead">
+          Automation workflows, data and AI, web software. Co-founder of Samga Automations.
+        </p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Section 2: What I do -->
+    <section id="what-i-do">
+      <div class="container">
+        <h2>What I do</h2>
+        <div class="skills-list">
+          <div class="skill-item">
+            <h3>Automation</h3>
+            <p class="skill-tools">n8n, Python</p>
+            <p class="subtext">
+              Building webhook-driven logic, scheduled jobs, and recurring business operations. Connecting external APIs and databases to eliminate manual data entry.
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <h3>Data &amp; AI</h3>
+            <p class="skill-tools">Power BI, ML, LLM assistants</p>
+            <p class="subtext">
+              Designing star schema data models, interactive financial dashboards, predictive machine learning pipelines, and retrieval-augmented LLM assistants.
+            </p>
+          </div>
+
+          <div class="skill-item">
+            <h3>Software &amp; web</h3>
+            <p class="skill-tools">Next.js, Supabase</p>
+            <p class="subtext">
+              Engineering full-stack web applications with relational PostgreSQL schemas, secure user authentication, clean interfaces, and production deployments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Section 3: About -->
+    <section id="about">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          I am a co-founder and AI engineer at Samga Automations, where we design practical automation pipelines and AI workflows for growing organizations.
+        </p>
+        <p>
+          I am currently pursuing a Bachelor of Business Information Technology (BIT) at Kabarak University, graduating in December 2026.
+        </p>
+        <p>
+          I learn by building real systems. I direct and accelerate development with AI coding tools, while maintaining full clarity on how each system works, how the data flows, and why the architecture is structured the way it is.
+        </p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Section 4: Projects -->
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-list">
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Clinic Booking Assistant</h3>
+              <span class="status-tag">Prototype</span>
+            </div>
+            <p class="project-desc">
+              WhatsApp and Telegram bot powered by retrieval-augmented generation (RAG) to handle clinic patient inquiries, FAQ resolution, and appointment bookings.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">
+                <a href="https://cedarlms.vercel.app" target="_blank" rel="noopener noreferrer">Cedar LMS ↗</a>
+              </h3>
+              <span class="status-tag">Live</span>
+            </div>
+            <p class="project-desc">
+              Lightweight learning management system for student course progression, grading, and material delivery. Built with Next.js and Supabase, live at <a href="https://cedarlms.vercel.app" target="_blank" rel="noopener noreferrer">cedarlms.vercel.app</a>.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Tenda</h3>
+              <span class="status-tag">Team prototype</span>
+            </div>
+            <p class="project-desc">
+              Service matching platform built to connect blue-collar trade workers and local artisans with clients in urban neighborhoods. Developed collaboratively as a team prototype.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">NSE Power BI rebuild</h3>
+              <span class="status-tag">Completed</span>
+            </div>
+            <p class="project-desc">
+              Complete rebuild of a Nairobi Securities Exchange market dataset into an optimized star schema data model, enabling rapid analytical queries and financial trend reporting.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Kenya crop yield analysis</h3>
+              <span class="status-tag">Completed</span>
+            </div>
+            <p class="project-desc">
+              Agricultural data science project applying Prophet time-series decomposition and XGBoost regression to analyze seasonal weather patterns and forecast historical crop yields in Kenya.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Chama and business automation</h3>
+              <span class="status-tag">In progress</span>
+            </div>
+            <p class="project-desc">
+              n8n workflow suite designed to automate contribution ledgers, reminder dispatches, and reconciliation reporting for investment clubs (chamas) and small businesses.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Attendance register automation</h3>
+              <span class="status-tag">In progress</span>
+            </div>
+            <p class="project-desc">
+              Data automation utility combining Python scripts and n8n webhooks to ingest raw biometric and roll-call records, clean edge-case errors, and generate weekly status summaries.
+            </p>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title">Nova-Z</h3>
+              <span class="status-tag">Hackathon demo (not fully working)</span>
+            </div>
+            <p class="project-desc">
+              Sprint project built during a 48-hour hackathon to test autonomous research workflows. Serves as a technical exploration, though features remain incomplete.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="ideas-block">
+          <h3 class="ideas-subheading">Unbuilt ideas</h3>
+          <ul class="ideas-list">
+            <li class="idea-item">
+              <p class="project-desc">
+                <strong>LughaDeul</strong> <span class="status-tag">— Unbuilt</span><br>
+                A dual-language learning tool designed for interactive practice in Kenyan and regional African languages.
+              </p>
+            </li>
+            <li class="idea-item">
+              <p class="project-desc">
+                <strong>KSL Recognition</strong> <span class="status-tag">— Unbuilt</span><br>
+                A real-time computer vision concept using hand landmark tracking to recognize Kenyan Sign Language alphabet and basic phrases.
+              </p>
+            </li>
+            <li class="idea-item">
+              <p class="project-desc">
+                <strong>Jumla Agent</strong> <span class="status-tag">— Unbuilt</span><br>
+                An automated procurement and inventory restocking agent designed for local wholesale and retail trade.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <!-- Section 5: Contact -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">
+          Open to full-time roles, contract work, and technical partnerships.
+        </p>
+
+        <table class="contact-table">
+          <tbody>
+            <tr>
+              <td class="contact-label">Email</td>
+              <td class="contact-value">
+                <a href="mailto:gabrielmwendwa61@gmail.com">gabrielmwendwa61@gmail.com</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="contact-label">Phone</td>
+              <td class="contact-value">
+                <a href="tel:0727779477">0727779477</a> <span class="subtext">(+254 727 779477)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="contact-label">GitHub</td>
+              <td class="contact-value">
+                <a href="https://github.com/asher-letti" target="_blank" rel="noopener noreferrer">github.com/asher-letti</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="contact-label">LinkedIn</td>
+              <td class="contact-value">
+                <a href="https://linkedin.com/in/gabriel-mwendwa-250a93250" target="_blank" rel="noopener noreferrer">linkedin.com/in/gabriel-mwendwa-250a93250</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="contact-label">Location</td>
+              <td class="contact-value">Nairobi, Kenya</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <hr class="rule" />
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; width: 100%;">
+      <span>Gabriel Mwendwa &middot; Portfolio</span>
+      <span>Nairobi, Kenya</span>
+    </div>
+  </footer>
+
+</body>
+</html>

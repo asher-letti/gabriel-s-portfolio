@@ -1,0 +1,6 @@
+{
+  "name": "Gabriel Mwendwa Portfolio",
+  "description": "Personal portfolio website for Gabriel Mwendwa, an automation, data/AI, and software builder based in Nairobi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
